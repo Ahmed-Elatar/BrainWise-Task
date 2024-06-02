@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block user %}  
+    {% if user != "" %}
+        Uesr :  {{user}}
+    {% endif %}
+
+{% endblock %}
+
+{% block content %}
+  <h2>SingUp</h2>
+  <form  method="post">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <br>
+    <p><input type="submit" value="SingUp"></p>
+    <br><br><br><br><br><br><br><br>
+    <a href="{% url 'login' %} ">Already have account?</a>  
+  </form>
+  
+  
+{% endblock %}
+
+
+
+
+
+
+
+

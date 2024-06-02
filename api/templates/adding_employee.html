@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block user %}  
+    {% if user != "" %}
+        Uesr :  {{user}}
+    {% endif %}
+
+{% endblock %}
+
+
+
+
+{% block content %}
+
+{% if message == "not_admin" %}
+  <script>
+    alert("you are not allowed to do this")
+  </script>
+{% endif %}
+
+
+{% if message == "erorr" %}
+  <script>
+    alert("The Department selected not in this company")
+  </script>
+{% endif %}
+
+
+  <h2>Adding Employee</h2>
+  <form  method="post">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <br>
+    <p><input type="submit" value="Add"></p>
+  </form>
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+  
+  <a href="{% url 'index' %} " style="margin-left: 20px;">Back </a>
+  
+{% endblock %}

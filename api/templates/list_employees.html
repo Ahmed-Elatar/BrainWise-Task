@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+  
+{% block user %}  
+    {% if user != "" %}
+        Uesr :  {{user}}
+    {% endif %}
+
+{% endblock %}
+
+
+{% block content %}
+  <h1>Employees</h1>
+    
+
+    <h2 style="color:brown;">Details </h2>
+    <br>
+
+    <table style="width:1000px ;border: 1px solid rgb(0, 0, 0);">
+      <tr >
+        <th style="background-color: #96D4D4;border: 1px solid black;">Name</th>
+        <th style="background-color: #96D4D4;border: 1px solid black;">Email</th>
+        <th style="background-color: #96D4D4;border: 1px solid black;">Mobile</th>
+        <th style="background-color: #96D4D4;border: 1px solid black;"> Address</th> 
+        <th style="background-color: #96D4D4;border: 1px solid black;">Department</th>
+        <th style="background-color: #96D4D4;border: 1px solid black;">Company</th>
+        <th style="background-color: #96D4D4;border: 1px solid black;">Hired on</th>
+        
+      </tr>
+      {% for employee in employees %}
+      <tr>
+        <td style="background-color: #96D4D4;border: 1px solid black;"><a href="{% url 'employee_details' employee.id %}">  {{employee.name}}</a></td>
+        <td style="background-color: #96D4D4;border: 1px solid black;">{{employee.email}}</td>
+        <td style="background-color: #96D4D4;border: 1px solid black;">{{employee.mobile_number}}</td>
+        <td style="background-color: #96D4D4;border: 1px solid black;">{{employee.address}}</td>
+        <td style="background-color: #96D4D4;border: 1px solid black;">{{employee.department.name}}</td>
+        <td style="background-color: #96D4D4;border: 1px solid black;">{{employee.company.name}}</td>
+        <td style="background-color: #96D4D4;border: 1px solid black;">{{employee.hired_on}}</td>
+      
+        
+      </tr>
+
+
+      {% endfor%}
+       
+      
+    </table>
+
+  
+
+  
+  
+  
+{% endblock %}

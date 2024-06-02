@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block user %}  
+    {% if user != "" %}
+        Uesr :  {{user}}
+    {% endif %}
+
+{% endblock %}
+
+
+{% block content %}
+
+{% if message == "not_admin" %}
+  <script>
+    alert("you are not allowed to do this")
+  </script>
+{% endif %}
+
+  <h2>Adding Company</h2>
+  <form  method="post">
+    {{ form.as_p }}
+    {% csrf_token %}
+    <br>
+    <p><input type="submit" value="Add"></p>
+    <br><br>
+    <a href="{% url 'index' %}  " style="margin-left: 20px;">Back </a>  
+  </form>
+  
+  
+{% endblock %}

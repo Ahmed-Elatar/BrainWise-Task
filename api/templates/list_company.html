@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+
+{% block user %}  
+    {% if user != "" %}
+        Uesr :  {{user}}
+    {% endif %}
+
+{% endblock %}
+
+
+
+{% block content %}
+  <h1>Companies</h1>
+  {% for company in companies %}
+    <h2>
+      <a href="{% url 'company_details' company.id %}">
+        {{ company.name }}
+      </a>
+    </h2>
+    <p class="date">
+      Number OF Employee : {{ company.number_of_employees }}
+    </br>
+      Number OF Departments : {{ company.number_of_departments }} 
+    </p>
+    
+  {% endfor %}
+  
+
+  {% include "pagination.html" with page=companies %}
+{% endblock %}

@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+  
+{% block user %}  
+    {% if user != "" %}
+        Uesr :  {{user}}
+    {% endif %}
+
+{% endblock %}
+
+
+{% block content %}
+  <h1>{{ employee.name }}</h1>
+    
+
+    <h2 style="color:brown;">Details </h2>
+    <br>
+
+    <table style="width:1000px ;border: 1px solid rgb(0, 0, 0);">
+      <tr >
+        <th style="background-color: #96D4D4;border: 1px solid black;">Name</th>
+        <th style="background-color: #96D4D4;border: 1px solid black;">Email</th>
+        <th style="background-color: #96D4D4;border: 1px solid black;">Mobile</th>
+        <th style="background-color: #96D4D4;border: 1px solid black;"> Address</th> 
+        <th style="background-color: #96D4D4;border: 1px solid black;">Department</th>
+        <th style="background-color: #96D4D4;border: 1px solid black;">Company</th>
+        <th style="background-color: #96D4D4;border: 1px solid black;">Hired on</th>
+        <th style="background-color: #96D4D4;border: 1px solid black;">Work Days</th> 
+        
+      </tr>
+      <tr>
+        <td style="background-color: #96D4D4;border: 1px solid black;">{{employee.name}}</td>
+        <td style="background-color: #96D4D4;border: 1px solid black;">{{employee.email}}</td>
+        <td style="background-color: #96D4D4;border: 1px solid black;">{{employee.mobile_number}}</td>
+        <td style="background-color: #96D4D4;border: 1px solid black;">{{employee.address}}</td>
+        <td style="background-color: #96D4D4;border: 1px solid black;">{{employee.department.name}}</td>
+        <td style="background-color: #96D4D4;border: 1px solid black;">{{employee.company.name}}</td>
+        <td style="background-color: #96D4D4;border: 1px solid black;">{{employee.hired_on}}</td>
+        <td style="background-color: #96D4D4;border: 1px solid black;">{{employee.hired_days}}</td>
+      
+        
+      </tr>
+
+  
+      
+    </table>
+
+    <h2>Edit Data</h2>
+    <form  method="post">
+      {{ form.as_p }}
+      {% csrf_token %}
+      <br>
+      <p><input type="submit" value="Edit"></p>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <a href="{% url 'index' %}  " style="margin-left: 20px;">Back </a>  
+    </form>
+    
+     
+  
+
+  
+  
+  
+{% endblock %}

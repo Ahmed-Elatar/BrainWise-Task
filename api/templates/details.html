@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block user %}  
+    {% if user != "" %}
+        Uesr :  {{user}}
+    {% endif %}
+
+{% endblock %}
+
+
+{% block content %}
+  <h1>{{ company.name }}</h1>
+  <p class="date">
+    Number OF Employee : {{ company.number_of_employees }}
+  </br>
+    Number OF Departments : {{ company.number_of_departments }} 
+  </p>
+  
+
+
+    <h2 style="color:brown;">Employees </h2>
+    <br>
+
+    <table style="width:600px ;border: 1px solid rgb(0, 0, 0);">
+      <tr >
+        <th style="background-color: #96D4D4;border: 1px solid black;">Name</th>
+        <th style="background-color: #96D4D4;border: 1px solid black;">Department</th> 
+        
+      </tr>
+      {% for emp in employees %}
+      <tr>
+        <td style="background-color: #96D4D4;border: 1px solid black;"><a href="{% url 'employee_details' emp.id %}">  {{emp.name}}</a></td>
+        <td style="background-color: #96D4D4;border: 1px solid black;">{{emp.department.name}}</td>
+        
+      </tr>
+      <a href="{% url 'company_details' company.id %}">  </a>
+
+  
+{% endfor %}
+      
+    </table>
+
+
+    <h2 style="color:brown;">Departments </h2>
+    <br>
+
+    <table style="width:300px ;border: 1px solid rgb(0, 0, 0);">
+      <tr >
+        <th style="background-color: #96D4D4;border: 1px solid black;">Department Name</th>
+        
+        
+      </tr>
+      {% for dep in department %}
+      <tr>
+        <td style="background-color: #96D4D4;border: 1px solid black;">{{dep.name}}</td>
+        
+        
+      </tr>
+      <!-- <a href="{% url 'company_details' company.id %}"> -->
+        
+    <!-- </a> -->
+
+  
+{% endfor %}
+      
+    </table>
+
+
+    
+
+     
+  
+
+  
+  
+  
+{% endblock %}

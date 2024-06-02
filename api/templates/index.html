@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+
+{% block user %}  
+    {% if user != "" %}
+        Uesr :  {{user}}
+    {% endif %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<h1 style="color: #04AA6D;">Employee Managment System</h1>
+
+<h2>This system can manage all process about your employees</h2>
+<br><br><br>
+
+<h2 style="color: #04AA6D;"> Index List</h2>
+
+<h4>  -   Companies  : to display all companies in the system</h4>
+
+<h4>  -   Employees  : to display all Employees in the system</h4>
+
+<h5>  .  Click to Any Company or Employee to get more details   </h5>
+
+<h5 style="color: red;">  .  Note that only Managers Can Add or Edit, other can show only </h5>
+
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
